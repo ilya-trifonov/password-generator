@@ -189,7 +189,7 @@ class App extends Component {
                 </Col>                
                 <Col span={12}>
 //                     <img src={Laptop} alt="" className="laptop" />
-                    <object type="image/svg+xml" data={Laptop} id="svg">
+                    <object type="image/svg+xml" data={Laptop} id="svg"/>
                 </Col>               
               </Row>
             </Content>
