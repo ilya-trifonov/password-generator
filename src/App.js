@@ -188,7 +188,7 @@ class App extends Component {
                   </div>
                 </Col>                
                 <Col span={12}>
-                  <object type="image/svg+xml" data={Laptop} id="laptop"/>
+                  <object type="image/svg+xml" data={Laptop} className='laptop' id="laptop"/>
                 </Col>               
               </Row>
             </Content>
