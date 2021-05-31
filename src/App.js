@@ -348,7 +348,7 @@ class App extends Component {
           this.generatePwd();
         }
       } >
-      Редактирвоать <
+      Редактирвоать пароль <
       /Button>    < /
       div > <
       /div> < /
