@@ -115,8 +115,8 @@ class App extends Component {
       alt = "UniqurLab"
       className = "logo" / >
       <
-      /div> <
-      /Header> <
+      /div> < /
+      Header > <
       Content style = {
         {
           padding: 24,
@@ -147,8 +147,8 @@ class App extends Component {
         {
           paddingBottom: "30px"
         }
-      } > Онлайн генератор паролей < /Title> <
-      /Typography>                 <
+      } > Онлайн генератор паролей < /Title> < /
+      Typography > <
       div className = "input-container" >
       <
       Input id = "input"
@@ -162,12 +162,12 @@ class App extends Component {
       <
       Clipboard / >
       <
-      /div> <
-      /div> <
+      /div> < /
+      div > <
       header >
       <
-      h3 > Натройки пароля < /h3> <
-      /header> <
+      h3 > Натройки пароля < /h3> < /
+      header > <
       Row gutter = {
         32
       } >
@@ -202,8 +202,8 @@ class App extends Component {
         e => this.handleCheckbox(e)
       } >
       Большие буквы <
-      /Checkbox> <
-      /List.Item> <
+      /Checkbox> < /
+      List.Item > <
       List.Item >
       <
       Checkbox checked = {
@@ -214,10 +214,10 @@ class App extends Component {
         e => this.handleCheckbox(e)
       } >
       Маленькие буквы <
-      /Checkbox> <
-      /List.Item> <
-      /List> <
-      /Col> <
+      /Checkbox> < /
+      List.Item > <
+      /List> < /
+      Col > <
       Col xs = {
         24
       }
@@ -237,8 +237,8 @@ class App extends Component {
         e => this.handleCheckbox(e)
       } >
       Числа <
-      /Checkbox> <
-      /List.Item> <
+      /Checkbox> < /
+      List.Item > <
       List.Item >
       <
       Checkbox checked = {
@@ -249,12 +249,12 @@ class App extends Component {
         e => this.handleCheckbox(e)
       } >
       Символы <
-      /Checkbox> <
-      /List.Item> <
-      /List> <
-      /Col> <
-      /div> <
-      /Col> <
+      /Checkbox> < /
+      List.Item > <
+      /List> < /
+      Col > <
+      /div> < /
+      Col > <
       Col xs = {
         24
       }
@@ -275,8 +275,8 @@ class App extends Component {
         }
       } >
       <
-      label htmlFor = "email" > Количество символов: < /label> <
-      /Col> <
+      label htmlFor = "email" > Количество символов: < /label> < /
+      Col > <
       Col xs = {
         24
       }
@@ -298,8 +298,8 @@ class App extends Component {
           this.generatePwd();
         }
       }
-      /> <
-      /Col> <
+      /> < /
+      Col > <
       Col xs = {
         24
       }
@@ -325,12 +325,12 @@ class App extends Component {
           });
         }
       }
-      /> <
-      /div> <
-      /Col> <
-      /div>                             <
-      /Col> <
-      /Row> <
+      /> < /
+      div > <
+      /Col> < /
+      div > <
+      /Col> < /
+      Row > <
       div style = {
         {
           textAlign: "center"
@@ -348,11 +348,11 @@ class App extends Component {
           this.generatePwd();
         }
       } >
-      Создать <
-      /Button>    <
-      /div>                <
-      /div> <
-      /Col>                 <
+      Редактирвоать <
+      /Button>    < /
+      div > <
+      /div> < /
+      Col > <
       Col span = {
         12
       } >
@@ -364,8 +364,8 @@ class App extends Component {
       className = 'laptop'
       id = "laptop" / >
       <
-      /Col>                <
-      /Row> <
+      /Col>                < /
+      Row > <
       /Content> <
       p style = {
         {
@@ -374,10 +374,10 @@ class App extends Component {
       } > ©UniqueLab.ru, {
         (new Date().getFullYear())
       } <
-      /p> <
-      /Layout> <
-      /div> <
-      /HttpsRedirect>
+      /p> < /
+      Layout > <
+      /div> < /
+      HttpsRedirect >
     );
   }
 }
