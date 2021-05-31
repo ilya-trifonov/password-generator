@@ -182,7 +182,7 @@ class App extends Component {
                               this.generatePwd();
                             }}
                           >
-                            Создать
+                            Сгенерировать
                           </Button>   
                       </div>               
                   </div>
