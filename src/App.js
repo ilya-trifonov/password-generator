@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Firebase from 'firebase'
+import firebaseConfig from './firebase'
 import Clipboard from './components/Clipboard'
 import { RandomPassword } from './utils/RandomPassword'
 import Laptop from './assets/images/laptop.svg'
@@ -17,8 +19,9 @@ import 'antd/dist/antd.css'
 import HttpsRedirect from 'react-https-redirect'
 
 const { Title } = Typography
-const { Content, Header, Footer } = Layout
-const root = document.documentElement
+const { Content, Header } = Layout
+
+Firebase.initializeApp(firebaseConfig)
 class App extends Component {
   constructor(props) {
     super(props)
@@ -29,8 +32,22 @@ class App extends Component {
       lowerCase: true,
       numeric: true,
       symbol: false,
-      size: 'large'
+      size: 'large',
+      title: '',
+      text: ''
     }
+  }
+
+  getData = () => {
+    let ref = Firebase.database().ref('/')
+    ref.on('value', (snapshot) => {
+      const data = snapshot.val()
+      this.setState({
+        title: data.Title,
+        text: data.text_1
+      })
+      console.log(this.state.title)
+    })
   }
 
   handleSizeChange = (e) => {
@@ -41,6 +58,7 @@ class App extends Component {
 
   componentDidMount() {
     this.generatePwd()
+    this.getData()
   }
   generatePwd() {
     const { upperCase, lowerCase, numeric, symbol, length } =
@@ -106,7 +124,7 @@ class App extends Component {
                           paddingBottom: '30px'
                         }}
                       >
-                        Онлайн генератор паролей
+                        {this.state.title}
                       </Title>
                     </Typography>
                     <div className="input-container">
@@ -122,7 +140,7 @@ class App extends Component {
                       </div>
                     </div>
                     <header>
-                      <h3> Настройки пароля </h3>
+                      <h3>{this.state.text}</h3>
                     </header>
                     <Row gutter={32}>
                       <Col
@@ -262,6 +280,7 @@ class App extends Component {
                 </Col>
                 <Col span={12}>
                   <object
+                    aria-label="laptop"
                     type="image/svg+xml"
                     data={Laptop}
                     className="laptop"

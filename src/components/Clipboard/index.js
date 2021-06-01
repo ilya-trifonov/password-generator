@@ -4,7 +4,6 @@ import './index.css'
 
 export default class Toggle extends PureComponent {
   render() {
-    const { theme } = this.props
     return (
       <div className="tooltip">
         <span className="tooltiptext" id="myTooltip">
