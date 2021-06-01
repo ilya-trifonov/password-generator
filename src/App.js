@@ -122,7 +122,7 @@ class App extends Component {
                       </div>
                     </div>
                     <header>
-                      <h3> Натройки пароля </h3>
+                      <h3> Настройки пароля </h3>
                     </header>
                     <Row gutter={32}>
                       <Col
