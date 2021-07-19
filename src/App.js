@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import Firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/database' // If using Firebase database
+import 'firebase/storage'
 import firebaseConfig from './firebase'
 import Clipboard from './components/Clipboard'
 import { RandomPassword } from './utils/RandomPassword'
@@ -14,14 +16,13 @@ import {
   Input,
   Button
 } from 'antd'
-import Logo from './assets/images/logo.png'
 import 'antd/dist/antd.css'
 import HttpsRedirect from 'react-https-redirect'
 
 const { Title } = Typography
 const { Content, Header } = Layout
 
-Firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 class App extends Component {
   constructor(props) {
     super(props)
@@ -33,21 +34,32 @@ class App extends Component {
       numeric: true,
       symbol: false,
       size: 'large',
-      title: '',
-      text: ''
+      title: null,
+      text: null,
+      image: null
     }
   }
 
   getData = () => {
-    let ref = Firebase.database().ref('/')
-    ref.on('value', (snapshot) => {
-      const data = snapshot.val()
-      this.setState({
-        title: data.Title,
-        text: data.text_1
+    const dbRef = firebase.database().ref()
+    dbRef
+      .get()
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val()
+          this.setState({
+            title: data.Title,
+            text: data.text_1,
+            image: data.image
+          })
+          // console.log(snapshot.val())
+        } else {
+          console.log('No data available')
+        }
       })
-      console.log(this.state.title)
-    })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   handleSizeChange = (e) => {
@@ -57,8 +69,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.generatePwd()
     this.getData()
+    this.generatePwd()
   }
   generatePwd() {
     const { upperCase, lowerCase, numeric, symbol, length } =
@@ -100,7 +112,13 @@ class App extends Component {
               }}
             >
               <div>
-                <img src={Logo} alt="UniqurLab" className="logo" />
+                {this.state.image !== null ? (
+                  <img
+                    src={this.state.image}
+                    alt="UniqurLab"
+                    className="logo"
+                  />
+                ) : null}
               </div>
             </Header>
             <Content
